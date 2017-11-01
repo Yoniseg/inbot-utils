@@ -31,10 +31,10 @@ public class ReplacingInputStream extends FilterInputStream {
 
     /**
      * @param is input
-     * @return nested replacing stream that replaces \n\r (DOS) and \r (MAC) line endings with UNIX ones "\n".
+     * @return nested replacing stream that replaces \r\n (DOS) and \n (MAC) line endings with UNIX ones "\n".
      */
-    public static InputStream newLineNormalizingInputStream(InputStream is) {
-        return new ReplacingInputStream(new ReplacingInputStream(is, "\n\r", "\n"), "\r", "\n");
+     public static InputStream newLineNormalizingInputStream(InputStream is) {
+        return new ReplacingInputStream(is, "\r\n", "\n");
     }
 
     /**
